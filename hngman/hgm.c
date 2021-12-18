@@ -2,53 +2,83 @@
 #include <stdlib.h>
 #include <windows.h>
 
-void hangman(char* secret, char* tiret2, int i){ //PROBLEME MINEUR DE CALIBRAGE AVEC LES TIRETS
-    printf("\t\tPassage sur hangman()\n");
-    char* tiret = malloc(sizeof(char) * i); int test = 0;
-
-    printf("Nombre de tirets : %d\n", i);
-
-    for(; i > 0-1;  i--){
-        printf("i = %d\n", i);
-        *(tiret2 + i) = '-';
-    }
-
-    printf("\n%s\n\n\n\n", tiret2);
-
-    free(tiret);
-    free(secret);
-    free(tiret2);
-}
-
-void tir_Count(char* secret, int size){
-
-    printf("\t\tPassage sur tircount()\n");
-
-    char* tiret2 = secret;
-
-    int nb_tir = 0, count = 0;
-
-    while(*(secret + size) != '\0'){
-        size++;
+int nb_tiret(char* tiret){
+    int count = 0; int i= 0;
+    while(*(tiret + i) != '\0'){
+        i++;
         count++;
     }
 
-    nb_tir = count - 1;
-    printf("nbtir = %d\nValeur de tiret2 = %s\nValeur de secret = %s\n\n\n", nb_tir, tiret2, secret); 
+    return i;
+}
 
-    hangman(secret, tiret2, nb_tir);
+void hangman(char* secret, char* tiret, int i, int size, char* p1, char* p2){ 
+
+    char rep1 = '0', rep2 = '0'; int nbTiret = nb_tiret(tiret);
+    printf("\t\t\tNb de tiret = %d\n", nbTiret);
+
+    printf("hangman : \n");
+    printf("%s\n", secret);
+    printf("%s\n\n\n", tiret);
+
+    printf("[Au tour de %s] > ", p1); scanf("%s", &rep1);
+    
+    while(nbTiret != 0){
+        while(*(secret + i) != '\0'){
+            if(rep1 == *(secret) + i){
+                printf("premier lettre trouver !");
+                nbTiret--;
+            }
+            
+            else{
+                printf("ntm\n");
+                return 0;
+            }
+        }
+        nbTiret--;
+    }
+
+    free(tiret);
+    free(secret);
+}
+
+void tir_Count(char* secret, int size, char* p1, char* p2){
+
+    printf("\t\t\tTir Count : [OK]\n");
+
+    int i = 0; size = 0;
+    char* tiret = malloc(sizeof(char) * i);
+
+    if(*(tiret) == NULL){
+        printf("Erreur MALLOC");
+        exit(1);
+    }
+
+    while(*(secret + size) != '\0'){
+        *(tiret + i) = '-';
+        i++; size++;
+    }
+
+    hangman(secret, tiret, i, size, p1, p2);
+    
 }
 
 int main(){
-    int size = 0, p1 = 0, p2 = 0;
+    int size = 0;
     char* secret = malloc(sizeof(char) * size);
-    char player1[10] = {'B', 'i', 'l', 'a', 'l'}; 
-    char player2[10] = {'T', 'i', 'p', 'h', 'a', 'i', 'n', 'e'};
+    
+    if(*(secret) == NULL){
+        printf("Erreur MALLOC");
+        exit(1);
+    }
+
+    char* p1[10] = {'B', 'i', 'l', 'a', 'l'}; 
+    char* p2[10] = {'T', 'i', 'p', 'h', 'a', 'i', 'n', 'e'};
 
     printf("Choisir le mot secret : "); 
     scanf("%[^\n]", secret);
     system("CLS");
 
-    tir_Count(secret, size);
+    tir_Count(secret, size, p1, p2);
     return 0;
 }
