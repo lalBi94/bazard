@@ -1,0 +1,26 @@
+/*credit{
+    "name":"Noir et Blanc",
+    "description":"Theme discord noir et blanc.";
+    "author":"Bilal",
+    "version":"0.1"
+}
+*/
+
+@import url(https://vsthemes.org/uploads/generator/client/BasicBackground.css);
+:root {
+    --transparencycolor: 0,0,0;
+    --transparencyalpha: 0.2;
+    --messagetransparency: 0.65;
+    --guildchanneltransparency: 0.65;
+    --memberlistransparency: 0.65;
+    --accentcolor: 97,97,97;
+    --background: url("https://cdn.futura-sciences.com/buildsv6/images/wide1920/9/6/f/96f8473cd0_50159937_panthere-noire.jpg");
+    --backdrop: rgba(0,0,0,0.2);
+    --backgroundblur: 0px;
+    --popoutblur: 0px;
+    --backdropblur: 0px;
+    --version1_0_5:none;
+    --backgroundsize: cover;
+    --popoutsize: cover;
+    --backdropsize: cover;
+}

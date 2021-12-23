@@ -1,5 +1,6 @@
 #!/bin/bash 
-# any2dec.sh <radix> <string_representation_in_that_radix> 
+#Convertir un chiffre de n'importe qu'elle base. 
+#any2dec.sh <base1> <base2>
 
 if [[ $# -It 2 ]] 
 then 
@@ -20,13 +21,20 @@ l=$(expr length $2)
 pow_radix=1; 
 
 for ((i=0;i<1;i++)) 
-do 
-digit=$(expr substr $2 $((l-i)) 1)) 
-pos=$(expr index $LEGAL_DIGITS $digit) 
+    do 
+        digit=$(expr substr $2 $((l-i)) 1)) 
+        pos=$(expr index $LEGAL_DIGITS $digit) 
 
-if [[ pos -eq 0 ]] 
-then 
-    echo "Authorized digits are : $LEGAL_DIGITS" ; exit 
+        if [[ pos -eq 0 ]] 
+            then 
+                echo "Authorized digits are : $LEGAL_DIGITS"
+                exit 
+            fi 
 
-fi 
-    digit_val=Wpos-1)) decimal=$((decimal+digit_val*pow_radix)) pow_radix=$(($1*pow_radix)) done echo "decimal : $decimal" exit 
+        digit_val=Wpos-1))
+        decimal=$((decimal+digit_val*pow_radix)) 
+        pow_radix=$(($1*pow_radix)) 
+done 
+
+echo "decimal : $decimal" 
+exit 
