@@ -127,5 +127,4 @@ void tir_Count(char* secret, int size){
     }
 
     hangman(secret, tiret, i, size);
-    
 }
