@@ -7,7 +7,7 @@
 */
 
 @import url(https://vsthemes.org/uploads/generator/client/BasicBackground.css);
-:root {
+:root{
     --transparencycolor: 0,0,0;
     --transparencyalpha: 0.2;
     --messagetransparency: 0.65;
