@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "stdlib.h": "c",
+        "_libprototype.h": "c",
+        "string.h": "c",
+        "stdio.h": "c"
+    }
+}
