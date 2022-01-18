@@ -3,8 +3,6 @@
 #include <string.h>
 #include "_libPrototype.h"
 
-//AFFICHAGE
-
 void displayList(){
     printf("Prenom des enfants :\n");
 
@@ -24,12 +22,10 @@ void displayList(){
         printf("Le 1er gosse est : %s\n", temporaire -> prenom);
         temporaire = temporaire -> suivant;
 
-        while(temporaire != NULL){
+        while(temporaire == NULL){
             printf("Le %s gosse est : %s\n", i, temporaire -> prenom);
             i++;
             temporaire = temporaire -> suivant;
-        };
+        }
     }
-    
-    printf("\n");
 }

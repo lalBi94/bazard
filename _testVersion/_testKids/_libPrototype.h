@@ -17,8 +17,9 @@ void displayMenu(); //AFFICHER LE MENU DE SELECT             **FINITO**
 
 int N, K, ronde;
 
-struct gosse{char prenom[100]; struct gosse *suivant;};
+struct gosse{char prenom[12]; struct gosse *suivant;};
 struct gosse *liste;
+
 struct gosse *p;
 struct gosse *fin;
 
